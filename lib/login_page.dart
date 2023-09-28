@@ -58,6 +58,7 @@ class _LoginPageState extends State<LoginPage> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: const Text('Login'),
+        backgroundColor: Colors.greenAccent,
       ),
       body: Container(
         padding: const EdgeInsets.all(20),
