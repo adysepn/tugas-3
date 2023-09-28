@@ -13,11 +13,14 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
-  var namauser;
-
   void _saveUsername() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setString('username', _usernameController.text);
+  }
+
+  void _savePassword() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString('password', _passwordController.text);
   }
 
   _showInput(namacontroller, placeholder, isPassword) {
@@ -53,6 +56,7 @@ class _LoginPageState extends State<LoginPage> {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: const Text('Login'),
       ),
       body: Container(
@@ -64,9 +68,10 @@ class _LoginPageState extends State<LoginPage> {
             _showInput(_passwordController, 'Masukkan Password', true),
             ElevatedButton(
               onPressed: () {
-                if (_usernameController.text == 'admin' &&
-                    _passwordController.text == 'admin') {
+                if (_usernameController.text == 'ady' &&
+                    _passwordController.text == 'ganteng') {
                   _saveUsername();
+                  _savePassword();
                   _showDialog('Anda Berhasil', const HomePage());
                 } else {
                   _showDialog(
